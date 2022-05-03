@@ -1,2 +1,2 @@
 Server=DESKTOP-EB5TK7M\SQLEXPRESS
-DataBase=Student
+DataBase=testsq

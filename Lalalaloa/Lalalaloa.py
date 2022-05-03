@@ -52,7 +52,7 @@ count = stolb.count(',') + 1
 mass = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 print('1 - Имена, 2 - Фамилии, 3 - Отчества')
-print('1 - Номера телефонов, 2 - Адреса, 3 - Даты')
+print('4 - Номера телефонов, 5 - Адреса, 6 - Даты')
 for i in range(0, count):
     yes = input()
     if yes == '1':
@@ -70,7 +70,7 @@ for i in range(0, count):
     elif yes == '5':
         print('Адрес')
         mass[i] = 5
-    elif yes == '5':
+    elif yes == '6':
         print('Дата')
         mass[i] = 6
 
@@ -82,37 +82,29 @@ for i in range(0, strok):
     for j in range(0, count):
             if mass[j] == 1:
                 requestString += "'"+name_M[random.randint(0,99)]+"'"
-                if j != count-2:
+                if j != count-1:
                     requestString += ','
             elif mass[j] == 2:
                 requestString += "'"+family_M[random.randint(0,99)]+"'"
-                if j != count-2:
+                if j != count-1:
                     requestString += ','
             elif mass[j] == 3:
                 requestString += "'"+middle_name_M[random.randint(0,99)]+"'"
-                if j != count-2:
+                if j != count-1:
                     requestString += ','
             elif mass[j] == 4:
                 requestString += "'"+number[random.randint(0,999)]+"'"
-                if j != count-2:
+                if j != count-1:
                     requestString += ','
             elif mass[j] == 5:
                 requestString += "'"+address[random.randint(0,999)]+"'"
-                if j != count-2:
+                if j != count-1:
                     requestString += ','
             elif mass[j] == 6:
                 requestString += "'"+date[random.randint(0,999)]+"'"
-                if j != count-2:
+                if j != count-1:
                     requestString += ','
     requestString += ');'
     print(requestString)
-#    dbCursor.execute(requestString)
-#    connection.commit()
-
-'''
-for j in range(0,120):
-    requestString = "INSERT INTO Grades(id_stud, id_lesson, grade) VALUES ("+str(j+2)+", 10, "+str(random.randint(3,5))+")"
     dbCursor.execute(requestString)
     connection.commit()
-'''
-#    requestString = "UPDATE Students SET date_birthday = '"+line[:-1]+"' WHERE id_stud = "+str(id)+""
