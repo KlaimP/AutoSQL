@@ -53,7 +53,7 @@ mass = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 print('1 - Имена, 2 - Фамилии, 3 - Отчества')
 print('4 - Номера телефонов, 5 - Адреса, 6 - Даты')
-print('7 - Случайное число(целое)')
+print('7 - Случайное число(целое), 8 - Случайное число(дробное)')
 
 for i in range(0, count):
     yes = input()
@@ -81,6 +81,12 @@ for i in range(0, count):
         minI = int(input())
         maxI = int(input())
         mass[i] = 7
+    elif yes == '8':
+        print('Рандом дробей')
+        print('Введите минимальное и максимальное(включительно) значения рандома(Целые числа):')
+        minF = int(input())
+        maxF = int(input())
+        mass[i] = 8
 
 print('\nСколько строк занести?')
 strok = int(input())
@@ -114,6 +120,10 @@ for i in range(0, strok):
                     requestString += ','
             elif mass[j] == 7:
                 requestString += ""+str(random.randint(minI, maxI))+""
+                if j != count-1:
+                    requestString += ','
+            elif mass[j] ==8:
+                requestString += ""+str(random.randint(minF, maxF)+round(random.random(), 2))+""
                 if j != count-1:
                     requestString += ','
     requestString += ');'
